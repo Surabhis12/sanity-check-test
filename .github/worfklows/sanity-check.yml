@@ -1,0 +1,19 @@
+name: Sanity Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Surabhis12/sanity-check-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

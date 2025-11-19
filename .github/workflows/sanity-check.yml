@@ -20,6 +20,6 @@ jobs:
           fetch-depth: 0
       
       - name: Run Sanity Check
-        uses: YOUR-USERNAME/sanity-check-action@v1
+        uses: Surabhis12/sanity-check-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

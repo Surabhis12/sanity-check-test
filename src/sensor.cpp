@@ -22,6 +22,7 @@ public:
         // No free(data) - memory leak!
     }
     
+    
     void processCommand(const char* cmd) {
         char command[50];
         strcpy(command, cmd);  // No bounds checking - BAD!

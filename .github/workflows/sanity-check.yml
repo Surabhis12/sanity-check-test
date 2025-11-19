@@ -15,11 +15,12 @@ jobs:
     
     steps:
       - name: Checkout PR code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       
-      - name: Run Sanity Check
+      - name: Run sanity checks
         uses: Surabhis12/sanity-check-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          fail-on-error: 'true'

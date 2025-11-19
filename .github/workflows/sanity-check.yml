@@ -18,7 +18,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      
+
+          
       - name: Run Sanity Check
         uses: Surabhis12/sanity-check-action@v1
         with:

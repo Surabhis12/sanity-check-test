@@ -10,6 +10,7 @@ function fetchUserData(userId) {
         console.log("Special user");  // console.log - BAD!
     }
 }
+
 debugger;  // debugger - BAD!
 
 module.exports = { fetchUserData };

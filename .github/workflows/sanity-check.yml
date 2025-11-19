@@ -1,4 +1,4 @@
-name: Sanity Checks
+name: Code Quality Check
 
 on:
   pull_request:
@@ -10,10 +10,16 @@ permissions:
   issues: write
 
 jobs:
-  code-quality:
+  sanity-check:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-      - uses: Surabhis12/sanity-check-action@v1
+      - name: Checkout PR code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Run Sanity Check
+        uses: YOUR-USERNAME/sanity-check-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,8 +1,14 @@
-name: Code Quality Check
+# This workflow should be placed in the TEST repository
+# Path: .github/workflows/sanity-check.yml
+
+name: Sanity Checks
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - develop
 
 permissions:
   contents: read
@@ -10,16 +16,26 @@ permissions:
   issues: write
 
 jobs:
-  sanity-check:
+  code-quality:
+    name: Run Sanity Checks
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout PR code
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Fetch all history for better diff detection
       
-      - name: Run Sanity Check
+      - name: Run Multi-Language Sanity Checks
         uses: Surabhis12/sanity-check-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          fail-on-error: true
+          post-comment: true
+          apply-label: true
+      
+      # Optional: Additional steps after checks
+      - name: Notify on Failure
+        if: failure()
+        run: |
+          echo "::warning::Sanity checks failed. Please review the PR comment for details."

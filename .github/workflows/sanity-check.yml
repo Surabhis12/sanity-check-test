@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0  # Fetch all history for better diff detection
       
       - name: Run Multi-Language Sanity Checks
-        uses: Surabhis12/sanity-check-action@v1
+        uses: Surabhis/sanity-check-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           fail-on-error: true

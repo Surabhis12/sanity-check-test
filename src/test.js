@@ -62,8 +62,3 @@ console.log("User password: ", password);
 // 18. Weak XOR obfuscation
 let encoded = str.charCodeAt(0) ^ 0xAB;
 
-// 19. innerHTML usage
-document.getElementById("demo").innerHTML = req.query.user;
-
-// 20. Wildcard CORS
-response.setHeader("Access-Control-Allow-Origin", "*");

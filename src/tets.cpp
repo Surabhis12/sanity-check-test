@@ -46,7 +46,6 @@ int type_mismatch() {
     char *str = (char*)12345;   // invalid pointer cast
     return (int)str;            // suspicious conversion
 }
-
 int main() {
     int uninitialized;          // uninitialized variable
     int result = uninitialized + 5;

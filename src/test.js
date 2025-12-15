@@ -11,6 +11,7 @@ if (count == "0") {
     console.log("Loose equality used");
 }
 
+
 // 4. eval()
 eval("console.log('Eval executed')");
 

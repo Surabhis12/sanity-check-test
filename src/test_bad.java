@@ -7,12 +7,13 @@ import javax.net.ssl.X509TrustManager;
 // 1. Class name starting with lowercase (class naming violation)
 class badclass {
 
+    
     // 2. Hard-coded credentials
     String password = "mypassword";
     String secret = "topsecret";
     String apiKey = "12345";
 
-    
+
     public void test() throws Exception {
 
         // 3. System.out.println usage

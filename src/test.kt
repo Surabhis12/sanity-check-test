@@ -6,6 +6,7 @@ import kotlin.random.Random
 // 1. Wildcard import
 import java.util.*
 
+
 var GLOBAL = "global mutable"     // 17. global mutable state
 var CACHE_DATA = "cache"          // 17. global mutable state
 

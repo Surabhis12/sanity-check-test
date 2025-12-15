@@ -14,6 +14,7 @@ int noReturn(int x) {
     int t = x * 2;              // unused variable
 }                               // Missing return → cppcheck error
 
+
 int buffer_overflow() {
     char buf[5];
     strcpy(buf, "HELLO123");    // strcpy → warning & overflow

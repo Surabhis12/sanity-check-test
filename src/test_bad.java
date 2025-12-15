@@ -12,6 +12,7 @@ class badclass {
     String secret = "topsecret";
     String apiKey = "12345";
 
+    
     public void test() throws Exception {
 
         // 3. System.out.println usage

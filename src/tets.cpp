@@ -9,6 +9,7 @@ int unusedFunction(int x) {     // Unused function
     return y + x;               // undefined behavior
 }
 
+
 // Function missing return statement
 int noReturn(int x) { 
     int t = x * 2;              // unused variable

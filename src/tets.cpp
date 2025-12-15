@@ -12,7 +12,8 @@ int unusedFunction(int x) {     // Unused function
 // Function missing return statement
 int noReturn(int x) { 
     int t = x * 2;              // unused variable
-}                               // Missing return → cppcheck error
+}              
+                 // Missing return → cppcheck error
 
 int buffer_overflow() {
     char buf[5];

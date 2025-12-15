@@ -11,7 +11,6 @@ pub fn run_library_checks() {
     // ------------------------------
     let v = Some(10);
     let _x = v.unwrap();
-
     // ------------------------------
     // 2. expect() in library code
     // ------------------------------

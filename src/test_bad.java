@@ -6,7 +6,6 @@ import javax.net.ssl.X509TrustManager;
 
 // 1. Class name starting with lowercase (class naming violation)
 class badclass {
-
     
     // 2. Hard-coded credentials
     String password = "mypassword";

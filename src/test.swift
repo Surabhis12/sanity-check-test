@@ -10,8 +10,7 @@ class BadClass {
     var name: String!   // implicitly unwrapped optional
     let id: Int!        // implicitly unwrapped optional
     
-    
-    init() {
+       init() {
         self.name = "test"
         self.id = 123
     }

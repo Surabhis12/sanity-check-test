@@ -12,7 +12,6 @@ void main() {
 }
 
 
-
 class badclass {
   // 3. hard-coded secrets
   String apiKey = "12345";

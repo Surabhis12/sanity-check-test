@@ -11,7 +11,6 @@ var GLOBAL = "global mutable"     // 17. global mutable state
 var CACHE_DATA = "cache"          // 17. global mutable state
 
 fun main() {
-
     // 2. Multiple statements per line
     val a = 1; val b = 2;
 

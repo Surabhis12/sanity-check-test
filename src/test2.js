@@ -11,6 +11,7 @@ if (count == "0") {
     console.log("Loose equality used");
 }
 
+
 // 4. eval()
 eval("console.log('Eval executed')");
 
@@ -31,7 +32,6 @@ let token = Math.random().toString(36).substring(2);
 // 9. Prototype pollution patterns
 obj.__proto__.malicious = true;
 user.prototype["hack"] = "yes";
-
 
 // 10. Command injection risky exec()
 const { exec } = require("child_process");
@@ -69,3 +69,4 @@ document.getElementById("demo").innerHTML = req.query.user;
 
 // 20. Wildcard CORS
 response.setHeader("Access-Control-Allow-Origin", "*");
+ 

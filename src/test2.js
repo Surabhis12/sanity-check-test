@@ -33,6 +33,7 @@ let token = Math.random().toString(36).substring(2);
 obj.__proto__.malicious = true;
 user.prototype["hack"] = "yes";
 
+
 // 10. Command injection risky exec()
 const { exec } = require("child_process");
 exec(`ls ${process.env.USER}`);

@@ -1,4 +1,4 @@
-name: Sanity Check
+name: Basic Sanity Check
 
 on:
   pull_request:
@@ -12,14 +12,12 @@ permissions:
 jobs:
   sanity-check:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout PR code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
       - name: Run Sanity Check
-        uses: Surabhis12/sanity-check-action@v1
+        uses: Surabhis12/sanity-check-action@v1.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

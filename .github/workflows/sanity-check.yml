@@ -1,4 +1,4 @@
-name: Sanity Check
+name: Basic Sanity Check
 
 on:
   pull_request:
@@ -12,14 +12,48 @@ permissions:
 jobs:
   sanity-check:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout PR code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
       - name: Run Sanity Check
-        uses: Surabhis12/sanity-check-action@v1
+        uses: Surabhis12/sanity-check-action@v1.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          
+          # Enable/disable specific language checks
+          enable-cpp-check: true
+          enable-js-check: true
+          enable-rust-check: true
+          enable-kotlin-check: true
+          enable-swift-check: true
+          enable-java-check: true
+          enable-flutter-check: true
+          
+          # Enable dependency vulnerability scanning
+          enable-dependency-scan: true
+          
+          # Severity threshold (error|warning|all)
+          severity-threshold: error
+          
+          # Custom ignore patterns
+          custom-ignore-patterns: '*.test.js,*.spec.ts,vendor/**'
+          
+          # Output format (text|json|sarif)
+          output-format: sarif
+          
+          # PR interaction
+          enable-pr-comments: true
+          enable-labels: true
+          fail-on-error: true
+          
+          # Tool versions
+          node-version: '20'
+          java-version: '17'
+          java-distribution: 'temurin'
+          ktlint-version: '1.0.1'
+          rust-toolchain: 'stable'
+          
+          # Timeout per check (in minutes)
+          check-timeout: 10

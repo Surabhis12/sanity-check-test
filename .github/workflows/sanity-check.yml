@@ -1,25 +1,26 @@
-name: Sanity Check
+name: Test Sanity Check
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+  workflow_dispatch:
 
+    
 permissions:
   contents: read
   pull-requests: write
   issues: write
 
 jobs:
-  sanity-check:
+  test-basic:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout PR code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
-      - name: Run Sanity Check
-        uses: Surabhis12/sanity-check-action@v1
+      - name: Test Action
+        uses: Surabhis12/sanity-check-action@release/v1.1.0  # Your branch
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

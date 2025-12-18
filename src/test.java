@@ -1,19 +1,8 @@
-import java.util.logging.Logger;
-
-public class Test {
-
-    private static final Logger LOGGER = Logger.getLogger(Test.class.getName());
-
-    public static void main(String[] args) {
-
-        LOGGER.info("Application started");
-
-        String userName = System.getenv("APP_USER");
-
-        if (userName == null || userName.isBlank()) {
-            LOGGER.warning("APP_USER environment variable not set");
-        } else {
-            LOGGER.info("Welcome " + userName);
-        }
-    }
-}
+import java.util.*;
+   
+   public class Test {
+       public static void main(String[] args) {
+           System.out.println("test");
+           String password = "hardcoded123";
+       }
+   }

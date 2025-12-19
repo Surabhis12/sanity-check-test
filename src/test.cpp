@@ -5,7 +5,8 @@ int main() {
     printf("%s", ptr);  // ERROR: uninitialized pointer
     char buffer[10];
     
+    
     gets(buffer);  // ERROR: unsafe gets()
     return 0;
-    
+
 }

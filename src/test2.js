@@ -6,4 +6,5 @@ function test() {
   eval("console.log('eval')");   // ❌ eval usage (security risk)
 }
 
+
 test();

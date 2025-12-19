@@ -14,6 +14,7 @@ public class Test {
             LOGGER.warning("Required environment variable is missing");
         }
 
+
         
         // No logging related to sensitive data
         // Application continues safely

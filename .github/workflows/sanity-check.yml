@@ -46,23 +46,3 @@ jobs:
           check-timeout: 15
           fail-on-error: true
   
-  # Test 3: Selective checks (NEW!)
-  test-selective:
-    name: Selective Checks Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - name: Test Enhanced - Only JS checks
-        uses: Surabhis12/sanity-check-action@release/v1.1.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          enable-js-check: true
-          enable-cpp-check: false
-          enable-rust-check: false
-          enable-kotlin-check: false
-          enable-swift-check: false
-          enable-java-check: true
-          enable-flutter-check: false

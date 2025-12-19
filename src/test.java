@@ -1,22 +1,11 @@
-import java.util.logging.Logger;
+import java.util.*;
 
 public class Test {
-
-    private static final Logger LOGGER = Logger.getLogger(Test.class.getName());
-
     public static void main(String[] args) {
-
-        LOGGER.info("Application started");
-
-        String password = System.getenv("APP_PASSWORD");
-
-        if (password == null || password.isBlank()) {
-            LOGGER.warning("Required environment variable is missing");
-        }
-
-
+        System.out.println("test");  // ERROR: System.out.println
         
-        // No logging related to sensitive data
-        // Application continues safely
+        String password = "hardcoded123";  // ERROR: hardcoded password
+        
+        String sql = "SELECT * FROM users WHERE id=" + args[0];  // ERROR: SQL injection
     }
 }

@@ -11,9 +11,10 @@ public class Test {
         String password = System.getenv("APP_PASSWORD");
 
         if (password == null || password.isBlank()) {
-            LOGGER.warning("APP_PASSWORD not set");
-        } else {
-            LOGGER.info("Password loaded securely");
+            LOGGER.warning("Required environment variable is missing");
         }
+
+        // No logging related to sensitive data
+        // Application continues safely
     }
 }

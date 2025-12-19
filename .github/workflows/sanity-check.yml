@@ -1,4 +1,4 @@
-name: Test Sanity Check
+name: Test Enhanced Sanity Check
 
 on:
   pull_request:
@@ -6,21 +6,43 @@ on:
     branches: [main]
   workflow_dispatch:
 
-    
 permissions:
   contents: read
   pull-requests: write
   issues: write
 
 jobs:
+  # Test 1: Basic (should work exactly like minimal)
   test-basic:
+    name: Basic Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
-      - name: Test Action
-        uses: Surabhis12/sanity-check-action@release/v1.1.0  # Your branch
+      - name: Test Enhanced - Default Settings
+        uses: Surabhis12/sanity-check-action@release/v1.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+  
+  # Test 2: Custom configurations (NEW!)
+  test-advanced:
+    name: Advanced Features Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Test Enhanced - Custom Config
+        uses: Surabhis12/sanity-check-action@release/v1.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Test new features
+          node-version: '20'
+          java-version: '21'
+          enable-dependency-scan: true
+          check-timeout: 15
+          fail-on-error: true
+  

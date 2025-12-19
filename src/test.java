@@ -1,16 +1,19 @@
-import java.util.*;
+import java.util.logging.Logger;
 
-public class test {
+public class Test {
+
+    private static final Logger LOGGER = Logger.getLogger(Test.class.getName());
 
     public static void main(String[] args) {
 
-        System.out.println("Application started");  // ❌ print instead of logger
+        LOGGER.info("Application started");
 
-        String password = "hardcoded123";            // ❌ hardcoded secret
-        String token = "abcd-1234-xyz";               // ❌ another secret
+        String password = System.getenv("APP_PASSWORD");
 
-        if (password == "hardcoded123") {             // ❌ string comparison using ==
-            System.out.println("Password matched");
+        if (password == null || password.isBlank()) {
+            LOGGER.warning("APP_PASSWORD not set");
+        } else {
+            LOGGER.info("Password loaded securely");
         }
     }
 }

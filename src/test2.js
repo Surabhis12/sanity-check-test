@@ -5,4 +5,5 @@ function test() {
   console.log("Test started");   // ❌ console.log usage
   eval("console.log('eval')");   // ❌ eval usage (security risk)
 }
+
 test();

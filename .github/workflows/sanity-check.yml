@@ -64,5 +64,5 @@ jobs:
           enable-rust-check: false
           enable-kotlin-check: false
           enable-swift-check: false
-          enable-java-check: false
+          enable-java-check: true
           enable-flutter-check: false

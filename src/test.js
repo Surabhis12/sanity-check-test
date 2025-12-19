@@ -8,6 +8,7 @@ if (x == 5) {  // ERROR: loose equality
   alert("test");  // ERROR: alert
 }
 
+
 eval("some code");  // ERROR: eval usage
 
 const apiKey = "hardcoded-key-12345";  // ERROR: hardcoded secret

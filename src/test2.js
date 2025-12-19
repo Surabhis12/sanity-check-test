@@ -1,19 +1,9 @@
-"use strict";
+// Bad JS code for sanity testing
 
-/**
- * Safely prints a greeting message
- */
-function greetUser(name) {
-  if (typeof name !== "string" || name.trim() === "") {
-    throw new Error("Invalid name");
-  }
-
-  return `Hello, ${name}`;
+function test() {
+  name = "Surabhi";              // ❌ implicit global variable
+  console.log("Test started");   // ❌ console.log usage
+  eval("console.log('eval')");   // ❌ eval usage (security risk)
 }
 
-try {
-  const message = greetUser("Surabhi");
-  console.info(message);
-} catch (error) {
-  console.error("Application error:", error.message);
-}
+test();

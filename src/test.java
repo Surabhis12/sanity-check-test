@@ -1,20 +1,16 @@
-import java.util.logging.Logger;
+import java.util.*;
 
 public class Test {
 
-    private static final Logger LOGGER = Logger.getLogger(Test.class.getName());
-
     public static void main(String[] args) {
 
-        LOGGER.info("Application started");
+        System.out.println("Application started");  // ❌ print instead of logger
 
-        String password = System.getenv("APP_PASSWORD");
+        String password = "hardcoded123";            // ❌ hardcoded secret
+        String token = "abcd-1234-xyz";               // ❌ another secret
 
-        if (password == null || password.isBlank()) {
-            LOGGER.warning("Required environment variable is missing");
+        if (password == "hardcoded123") {             // ❌ string comparison using ==
+            System.out.println("Password matched");
         }
-
-        // No logging related to sensitive data
-        // Application continues safely
     }
 }

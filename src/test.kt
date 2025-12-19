@@ -7,8 +7,6 @@ fun main() {
     
     val result: String = getValue() as String  // ERROR: unsafe cast
 }
-
-
 fun getValue(): Any? {
     return null
 }

@@ -1,14 +1,25 @@
-// This file has INTENTIONAL errors to test detection
-
-console.log("This will be detected");  // ERROR: console.log
-
-var x = 5;  // ERROR: var keyword
-
-if (x == 5) {  // ERROR: loose equality
-  alert("test");  // ERROR: alert
+class UserService {
+    constructor(config) {
+        this.config = config;
+    }
+    
+    async fetchUserData(userId) {
+        if (!userId) {
+            throw new Error('User ID is required');
+        }
+        
+        const response = await fetch(`/api/users/${userId}`);
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch user data');
+        }
+        
+        return response.json();
+    }
+    
+    validateUser(user) {
+        return user && user.id && user.email;
+    }
 }
 
-eval("some code");  // ERROR: eval usage
-
-
-const apiKey = "hardcoded-key-12345";  // ERROR: hardcoded secret
+module.exports = UserService;

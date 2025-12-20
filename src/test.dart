@@ -1,14 +1,79 @@
-import 'dart:convert';
+import 'dart:async';
 
-class myWidget {  // Error: lowercase class name
-  final apiKey = "secret-key-123";  // Error: hardcoded secret
+class User {
+  final int id;
+  final String name;
+  final String email;
   
-  void loadData() {
-    print("Loading data");  // Error: print() used
+  const User({
+    required this.id,
+    required this.name,
+    required this.email,
+  });
+  
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+    };
+  }
+  
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      email: json['email'] as String,
+    );
+  }
+  
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is User &&
+        other.id == id &&
+        other.name == name &&
+        other.email == email;
+  }
+  
+  @override
+  int hashCode => id.hashCode ^ name.hashCode ^ email.hashCode;
+}
+
+class UserRepository {
+  final Map<int, User> _cache = {};
+  
+  Future<void> saveUser(User user) async {
+    if (user.name.isEmpty) {
+      throw ArgumentError('User name cannot be empty');
+    }
     
-    var result = data as String;  // Error: unsafe cast
+    if (user.email.isEmpty) {
+      throw ArgumentError('User email cannot be empty');
+    }
     
-    
-    String sql = "SELECT * FROM users WHERE id=$userId";  // Error: SQL injection
+    await Future.delayed(const Duration(milliseconds: 100));
+    _cache[user.id] = user;
+  }
+  
+  Future<User?> getUser(int id) async {
+    await Future.delayed(const Duration(milliseconds: 50));
+    return _cache[id];
+  }
+  
+  Future<List<User>> getAllUsers() async {
+    await Future.delayed(const Duration(milliseconds: 50));
+    return _cache.values.toList();
+  }
+  
+  void clearCache() {
+    _cache.clear();
+  }
+  
+  T? safeCast<T>(dynamic value) {
+    if (value is T) {
+      return value;
+    }
+    return null;
   }
 }

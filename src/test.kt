@@ -1,12 +1,30 @@
-import java.util.*
+import java.util.logging.Logger
 
-fun main() {
-    println("test")  // OK in main, but shows in output
+class DataRepository {
+    private val logger = Logger.getLogger(DataRepository::class.java.name)
+    private val cache = mutableMapOf<String, Any>()
     
-    val password = "hardcoded123"  // ERROR: hardcoded password
-    val result: String = getValue() as String  // ERROR: unsafe cast
-}
-
-fun getValue(): Any? {
-    return null
+    fun fetchData(key: String): Any? {
+        logger.info("Fetching data for key: $key")
+        return cache[key]
+    }
+    
+    fun saveData(key: String, value: Any) {
+        require(key.isNotEmpty()) { "Key cannot be empty" }
+        cache[key] = value
+        logger.info("Data saved for key: $key")
+    }
+    
+    fun clearCache() {
+        cache.clear()
+        logger.info("Cache cleared")
+    }
+    
+    fun <T> safeCast(value: Any?, type: Class<T>): T? {
+        return if (type.isInstance(value)) {
+            type.cast(value)
+        } else {
+            null
+        }
+    }
 }

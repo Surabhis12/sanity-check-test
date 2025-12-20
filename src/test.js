@@ -9,6 +9,7 @@ if (x == "5") {
     alert("This is bad");
 }
 
+
 // eval is dangerous
 eval("alert('dangerous')");
 

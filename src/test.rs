@@ -10,6 +10,7 @@ fn main() {
     // println! in library code
     println!("Debug output");
     
+    
     // Hard-coded secret
     let api_key = "secret_key_123";
 }

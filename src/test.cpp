@@ -9,7 +9,6 @@ int main() {
     // ERROR: Unsafe gets()
     char buffer[10];
     gets(buffer);
-    
     // ERROR: Unsafe strcpy
     char dest[10];
     char source[20] = "This is too long";

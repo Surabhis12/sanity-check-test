@@ -1,13 +1,16 @@
-// This file has INTENTIONAL errors to test detection
+// Console.log should be removed
+console.log("Debug message");
 
-console.log("This will be detected");  // ERROR: console.log
+// Using var instead of let/const
+var x = 5;
 
-var x = 5;  // ERROR: var keyword
-
-if (x == 5) {  // ERROR: loose equality
-  alert("test");  // ERROR: alert
+// Using == instead of ===
+if (x == "5") {
+    alert("This is bad");
 }
-eval("some code");  // ERROR: eval usage
 
+// eval is dangerous
+eval("alert('dangerous')");
 
-const apiKey = "hardcoded-key-12345";  // ERROR: hardcoded secret
+// Hard-coded secret
+const apiKey = "sk_live_1234567890";

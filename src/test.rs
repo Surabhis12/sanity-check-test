@@ -1,8 +1,15 @@
 fn main() {
-    println!("test");  // ERROR: println! in library code
+    // unwrap() without error handling
+    let value = Some(5);
+    let result = value.unwrap();
     
-    let x = vec![1, 2, 3];
+    // expect() without proper error handling
+    let data = Some("test");
+    let unwrapped = data.expect("Failed");
     
-    let val = x.get(10).unwrap();  // ERROR: unwrap()
-    let api_key = "hardcoded-api-key";  // ERROR: hardcoded secret
+    // println! in library code
+    println!("Debug output");
+    
+    // Hard-coded secret
+    let api_key = "secret_key_123";
 }

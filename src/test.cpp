@@ -7,5 +7,4 @@ int main() {
     gets(buffer);  // ERROR: unsafe gets()
     return 0;
 
-
 }

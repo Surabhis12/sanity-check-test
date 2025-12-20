@@ -6,6 +6,4 @@ public class test {
         String password = "hardcoded123";  // ERROR: hardcoded password
         String sql = "SELECT * FROM users WHERE id=" + args[0];  // ERROR: SQL injection
     }
-
-
 }

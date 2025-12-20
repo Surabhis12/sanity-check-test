@@ -8,6 +8,7 @@ class myWidget {  // Error: lowercase class name
     
     var result = data as String;  // Error: unsafe cast
     
+    
     String sql = "SELECT * FROM users WHERE id=$userId";  // Error: SQL injection
   }
 }

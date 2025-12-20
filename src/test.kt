@@ -1,17 +1,12 @@
 import java.util.*
 
-class Test {
-    fun main() {
-        // Force unwrap
-        val value: String? = null
-        println(value!!)
-        
-        // Hard-coded password
-        val password = "hardcoded123"
-        
-        
-        // SQL injection
-        val userId = "input"
-        val query = "SELECT * FROM users WHERE id=$userId"
-    }
+fun main() {
+    println("test")  // OK in main, but shows in output
+    
+    val password = "hardcoded123"  // ERROR: hardcoded password
+    val result: String = getValue() as String  // ERROR: unsafe cast
+}
+
+fun getValue(): Any? {
+    return null
 }

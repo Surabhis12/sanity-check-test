@@ -1,18 +1,9 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    // ERROR: Uninitialized pointer
-    char* ptr;
-    printf("%s", ptr);
-    
-    // ERROR: Unsafe gets()
+    char* ptr;  // Uninitialized
+    printf("%s", ptr);  // ERROR: uninitialized pointer
     char buffer[10];
-    gets(buffer);
-    // ERROR: Unsafe strcpy
-    char dest[10];
-    char source[20] = "This is too long";
-    strcpy(dest, source);
-    
+    gets(buffer);  // ERROR: unsafe gets()
     return 0;
 }

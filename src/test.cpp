@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int main() {
+    
     char* ptr;  // Uninitialized
     printf("%s", ptr);  // ERROR: uninitialized pointer
     char buffer[10];

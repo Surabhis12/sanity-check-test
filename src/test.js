@@ -8,6 +8,7 @@ if (x == 5) {  // ERROR: loose equality
   alert("test");  // ERROR: alert
 }
 
+
 eval("some code");  // ERROR: eval usage
 
 

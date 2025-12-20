@@ -8,4 +8,5 @@ public class test {
         String sql = "SELECT * FROM users WHERE id=" + args[0];  // ERROR: SQL injection
     }
 
+    
 }

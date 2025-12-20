@@ -6,4 +6,5 @@ fn main() {
     let val = x.get(10).unwrap();  // ERROR: unwrap()
     let api_key = "hardcoded-api-key";  // ERROR: hardcoded secret
 
+    
 }

@@ -1,3 +1,4 @@
+// FIXED Swift File - src/UserManager.swift
 import Foundation
 
 struct User: Codable, Equatable {
@@ -44,6 +45,14 @@ class UserManager {
     
     func safeCast<T>(_ value: Any?, to type: T.Type) -> T? {
         return value as? T
+    }
+    
+    func processOptional(_ value: String?) -> String {
+        // Safe optional handling - no force unwrapping
+        if let unwrappedValue = value {
+            return unwrappedValue
+        }
+        return "default"
     }
 }
 
